@@ -1,0 +1,108 @@
+﻿@model IHMS.Models.MyModel
+@{
+    ViewBag.Title = "ViewAppointment";
+    Layout = "~/Areas/Doctor/Views/Shared/MyDoctorMaster.cshtml";
+    string status = string.Empty;
+}
+
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card border-danger">
+            <div class="card-header d-flex justify-content-between">
+                <div class="header-title">
+                    <h4 class="card-title text-danger">Patient Detail AND Doctor Detail</h4>
+                </div>
+            </div>
+            <div class="card-body">
+
+                <div>
+                    <div class="row">
+                        @Html.HiddenFor(Model => Model.MyAppointment.AppointmentID)
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <h4><span class="text-danger">Patient Data</span></h4>
+                                <label>Patient Name *</label>
+                                <span class="text-green">@Html.DisplayFor(x => x.MyPatient.Name)</span>
+                                <br />
+                                <label>Email *</label>
+                                <a href="mailto:" class="text-blue">@Html.DisplayFor(x => x.MyPatient.Email)</a>
+                                <br />
+                                <label>Contact *</label>
+                                <span class="text-green">@Html.DisplayFor(x => x.MyPatient.Contact)</span>
+                                <br />
+                                @*<label>Password *</label>
+                                    <span class="text-green">@Html.DisplayFor(x => x.MyPatient.Password)</span>
+                                    <br />*@
+                                <label>DOB *</label>
+                                <span class="text-green">@Html.DisplayFor(x => x.MyPatient.DOB)</span>
+                                <br />
+                                <label>Gender *</label>
+                                <span class="text-green">@Html.DisplayFor(x => x.MyPatient.Gender)</span>
+                                <br />
+                                <label>Maritial Status *</label>
+                                <span class="text-green">@Html.DisplayFor(x => x.MyPatient.MaritialStatus)</span>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>Doc Image *</label>
+                                <img src="~/UploadImage/@Model.MyDoctor.Image"  class="rounded-circle shadow " alt="profile-image"/>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <h4><span class="text-danger">Doctor Data</span></h4>
+                            <div class="form-group">
+                                <label>Name *</label>
+                                <span class="text-green">@Html.DisplayFor(x => x.MyDoctor.DoctorName)</span>
+                                <br />
+                                <label>Mail *</label>
+                                <a href="mailto:" class="text-blue">@Html.DisplayFor(x => x.MyDoctor.Email)</a>
+                                <br />
+                                <label>Contact *</label>
+                                <span class="text-green">@Html.DisplayFor(x => x.MyDoctor.Contact)</span>
+                                <br />
+                                @*<label>Password *</label>
+                                    <span class="text-green">@Html.DisplayFor(x => x.MyDoctor.Password)</span>
+                                    <br />*@
+                                <label>DoctorFee *</label>
+                                <span class="text-green">@Html.DisplayFor(x => x.MyDoctor.DoctorFee)</span>
+                                <br />
+                                <label>Education *</label>
+                                <span class="text-green">@Html.DisplayFor(x => x.MyDoctor.Education)</span>
+                                <br />
+                                <label>Dept: Name *</label>
+                                <span class="text-green">@Html.DisplayFor(x => x.MyDepartment.DepartmentName)</span>
+                                <br />
+                                <label>Status *</label>
+                                @if (Model.MyDoctor.Status == 0)
+                                {
+                                    status = "InActive";
+                                }
+                                else
+                                {
+                                    status = "Available";
+                                }
+                                <span class="text-green">@status</span>
+
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            @Html.ActionLink("In-Process", "CheckStatus", new { appID = Model.MyAppointment.AppointmentID, status = 0 }, new { @class = "btn btn-primary" })
+                            @Html.ActionLink("Approved", "CheckStatus", new { appID = Model.MyAppointment.AppointmentID, status = 1 }, new { @class = "btn btn-success" })
+                            @Html.ActionLink("Completed", "CheckStatus", new { appID = Model.MyAppointment.AppointmentID, status = 2 }, new { @class = "btn btn-warning" })
+                            @Html.ActionLink("Rejected", "CheckStatus", new { appID = Model.MyAppointment.AppointmentID, status = 3 }, new { @class = "btn btn-danger" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+

@@ -1,0 +1,45 @@
+﻿@*@model IEnumerable<IHMS.Models.MedicineSell>*@
+@{
+    int Sno = 0;
+    string Status = string.Empty;
+}
+
+<div class="card-body">
+    <div class="table-responsive">
+        <table id="datatable" class="table data-table table-striped">
+            <thead>
+                <tr>
+                    <th>Sno</th>
+                    <th>InvoiceNo</th>
+                    <th>Total Medicine</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (ViewBag.SellMedicineList != null)
+                {
+                    foreach (var item in ViewBag.SellMedicineList)
+                    {
+                        <tr>
+                            <td>
+                                @{ Sno++;}
+                                @Sno
+                            </td>
+                            <td>
+                                @item.InvoiceNo
+                            </td>
+                            <td>
+                                @item.TotalMedicine
+                            </td>
+                            <td>
+                                @Html.ActionLink("View Invoice", "MedicineSellInvoice", "MedSellInvoive", new { invoiceNo = item.InvoiceNo },
+                                                new { @class = "btn btn-primary" })
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+

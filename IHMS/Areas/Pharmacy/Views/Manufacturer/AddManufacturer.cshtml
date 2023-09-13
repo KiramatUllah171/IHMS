@@ -1,0 +1,124 @@
+﻿@model IHMS.Models.Manufacturer
+@{
+    ViewBag.Title = "Manufacturer";
+    Layout = "~/Areas/Pharmacy/Views/Shared/MyPharmacyMaster.cshtml";
+}
+
+<div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Manufacturer</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row clearfix">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="card">
+                            <div class="body">
+                                <div class="row">
+                                    <input type="hidden" id="hdnmanuID" />
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Name *</label>
+                                            <input type="text" onchange="validdate('#txtname', '#msgName', 'Customer');" id="txtname" class="form-control" placeholder="Customer Name">
+                                            <span class="text-danger" id="msgName"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Email *</label>
+                                            <input type="text" onchange="validdate2('#txtemail', '#msgemail', 'Email');" id="txtemail" class="form-control" placeholder="me@e/gmail.com">
+                                            <span class="text-danger" id="msgemail"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Contact *</label>
+                                            <input type="number" onchange="validdate1('#txtcontact', '#msgcontact', 'Contact');" id="txtcontact" class="form-control" placeholder="0987654321">
+                                            <span class="text-danger" id="msgcontact"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Address *</label>
+                                            <input type="text" onchange="validdate1('#txtaddress', '#msgadres', 'Address');" id="txtaddress" class="form-control" placeholder="City/Town">
+                                            <span class="text-danger" id="msgadres"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Company Code *</label>
+                                            <input type="number" onchange="validdate1('#txtcompanycode', '#msgcompanycode', 'Company Code');" id="txtcompanycode" class="form-control">
+                                            <span class="text-danger" id="msgcompanycode"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Status</label>
+                                            <select class="form-control" onchange="validdateDropDowns('#ddlstatus', '#msgStatus', 'Status');" id="ddlstatus">
+                                                <option value="-1">----Select Status----</option>
+                                                <option value="1">Active</option>
+                                                <option value="0">InActive</option>
+                                            </select>
+                                            <span class="text-danger" id="msgStatus"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                @*<button class="btn btn-raised btn-primary waves-effect" id="btnSubmit" onclick="SubmitData();">SUBMIT</button>*@
+                                <input type="submit" class="btn btn-raised btn-primary waves-effect" onclick="SubmitData();" id="btnSubmit" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row clearfix">
+    <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="card">
+            <div class="header">
+                <h2>Manufacturer Details</h2>
+            </div>
+            <div class="body">
+                <div class="table-responsive">
+                    <button type="button" class="btn btn-raised btn-primary waves-effect" data-toggle="modal" data-target="#Modal">
+                        Add Manufacturer
+                    </button>
+                    <table class="table table-bordered table-striped table-hover dataTable js-exportable">
+                        <thead>
+                            <tr>
+                                <th>Sno:</th>
+                                <th>Manufacturer Name</th>
+                                <th>Email</th>
+                                <th>Contact</th>
+                                <th>Address</th>
+                                <th>Company Code</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="mytable">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="~/Scripts/jquery-3.4.1.js"></script>
+<link href="~/IHMSJS/iziToast.css" rel="stylesheet" />
+<script src="~/IHMSJS/iziToast.js"></script>
+<script src="~/IHMSJS/PharmacyJS/Manufacturer.js"></script>
+
+
+
+

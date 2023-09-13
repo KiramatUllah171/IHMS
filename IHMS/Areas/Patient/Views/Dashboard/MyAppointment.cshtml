@@ -1,0 +1,85 @@
+﻿@model IHMS.Models.Appointment
+@{
+    ViewBag.Title = "MyAppointment";
+    Layout = "~/Areas/Patient/Views/Shared/MyPatientMaster.cshtml";
+    string status = string.Empty;
+    string gender = string.Empty;
+    string married = string.Empty;
+    int Sno = 0;
+}
+
+
+
+
+<div class="card-body">
+    <div class="table-responsive">
+        <h3><span class="text-danger">MyAppointment</span></h3>
+
+        <table class="table data-table table-striped table-hover data-table js-exportable product_item_list c_table theme-color mb-0 footable footable-1 footable-paging footable-paging-center breakpoint-lg" style="">
+            <thead>
+                <tr class="footable-header">
+                    <th class="footable-sortable footable-first-visible" style="display: table-cell;">Sno:<span class="fooicon fooicon-sort"></span></th>
+                    <th class="footable-sortable footable-first-visible" style="display: table-cell;">Patient Name:<span class="fooicon fooicon-sort"></span></th>
+                    <th class="footable-sortable" style="display: table-cell;">Doc Name<span class="fooicon fooicon-sort"></span></th>
+                    @*<th class="footable-sortable" style="display: table-cell;">Email<span class="fooicon fooicon-sort"></span></th>*@
+                    @*<th class="footable-sortable" style="display: table-cell;">Contact<span class="fooicon fooicon-sort"></span></th>
+                    <th data-breakpoints="sm xs" class="footable-sortable" style="display: table-cell;">My Password<span class="fooicon fooicon-sort"></span></th>
+                    <th data-breakpoints="sm xs" class="footable-sortable" style="display: table-cell;">DOB<span class="fooicon fooicon-sort"></span></th>*@
+                    <th data-breakpoints="xs" class="footable-sortable" style="display: table-cell;">Gender<span class="fooicon fooicon-sort"></span></th>
+                    <th data-breakpoints="xs" class="footable-sortable" style="display: table-cell;">Maritial Status<span class="fooicon fooicon-sort"></span></th>
+                    <th data-breakpoints="xs" class="footable-sortable" style="display: table-cell;">Doc Dept:<span class="fooicon fooicon-sort"></span></th>
+                    <th data-breakpoints="xs" class="footable-sortable" style="display: table-cell;">Request<span class="fooicon fooicon-sort"></span></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var item in ViewBag.myAppointment)
+                {
+                    <tr>
+                        <td>
+                            @{ Sno++;}
+                            @Sno
+                        </td>
+                        <td>
+                            @item.MyPatient.Name
+                        </td>
+                        <td>
+                            @item.MyDoctor.DoctorName
+                        </td>
+                        @*<td>@item.MyPatient.Email</td>*@
+                        @*<td>@item.MyPatient.Contact</td>
+                            <td>@item.MyPatient.Password</td>
+                            <td>@item.MyPatient.DOB</td>*@
+                        <td>
+                            @item.MyPatient.Gender
+                        </td>
+                        <td>
+                            @item.MyPatient.MaritialStatus
+                        </td>
+                        <td>@item.MyDepartment.DepartmentName</td>
+                        <td>
+                            @if (item.MyAppointment.Status == 0)
+                            {
+                                status = "In-Process";
+                            }
+                            else if (item.MyAppointment.Status == 1)
+                            {
+                                status = "Approved";
+                            }
+                            else if (item.MyAppointment.Status == 2)
+                            {
+                                status = "Completed";
+                            }
+                            else
+                            {
+                                status = "Rejected";
+                            }
+                            @status
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+

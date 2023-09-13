@@ -1,0 +1,80 @@
+﻿@model IHMS.Models.Category
+@{
+    ViewBag.Title = "Category";
+    Layout = "~/Areas/Pharmacy/Views/Shared/MyPharmacyMaster.cshtml";
+}
+
+<div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Category</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row clearfix">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="card">
+                            <div class="body">
+                                <div class="row">
+                                    <input type="hidden" id="hdnCatId" />
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>Category Name *</label>
+                                            <input type="text" onchange="validdate('#txtname', '#msgname', 'Category');" id="txtname" class="form-control" placeholder="Category Name">
+                                            <span class="text-danger" id="msgname"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                @*<button class="btn btn-raised btn-primary waves-effect" id="btnSubmit" onclick="SubmitData();">SUBMIT</button>*@
+                                <input type="submit" class="btn btn-raised btn-primary waves-effect" onclick="SubmitData();" id="btnSubmit" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row clearfix">
+    <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="card">
+            <div class="header">
+                <h2>Category Details</h2>
+            </div>
+            <div class="body">
+                <div class="table-responsive">
+                    <button type="button" class="btn btn-raised btn-primary waves-effect" data-toggle="modal" data-target="#Modal">
+                        Add Category
+                    </button>
+                    <table class="table table-bordered table-striped table-hover dataTable js-exportable">
+                        <thead>
+                            <tr>
+                                <th>Sno:</th>
+                                <th>Category Name</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="mytable">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="~/Scripts/jquery-3.4.1.js"></script>
+<link href="~/IHMSJS/iziToast.css" rel="stylesheet" />
+<script src="~/IHMSJS/iziToast.js"></script>
+<script src="~/IHMSJS/PharmacyJS/Category.js"></script>
+
+
+
+

@@ -1,0 +1,46 @@
+﻿@model IHMS.Models.tblPatient
+@{
+    ViewBag.Title = "Doctor";
+    Layout = "~/Areas/Patient/Views/Shared/MyIndexMaster.cshtml";
+}
+
+<section id="page-banner" class="pt-105 pb-110 bg_cover" data-overlay="8" style="background-image: url(images/page-banner-3.jpg)">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="page-banner-cont">
+                    <h2>Doctors</h2>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="@Url.Action("Index","Indexview","Patient")">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Doctors</li>
+                        </ol>
+                    </nav>
+                </div>  <!-- page banner cont -->
+            </div>
+        </div> <!-- row -->
+    </div> <!-- container -->
+</section>
+
+<section id="teachers-page" class="pt-90 pb-120 gray-bg">
+    <div class="container">
+        <div class="row">
+            @foreach (var item in ViewBag.doctor)
+            {
+                <div class="col-lg-3 col-sm-6">
+                    <div class="singel-teachers mt-30 text-center">
+                        <div class="image">
+                            <img src="../../../../UploadImage/@item.MyDoctor.Image" width="150" height="300" alt="teacher">
+                        </div>
+                        <div class="cont">
+                            <h6>@item.MyDoctor.DoctorName</h6>
+                            <span>@item.MyDepartment.DepartmentName</span>
+                        </div>
+                    </div> <!-- singel teachers -->
+                </div>
+            }
+
+       <!-- row -->
+    </div> <!-- container -->
+</section>
+

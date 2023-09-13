@@ -1,0 +1,101 @@
+﻿@model IHMS.Models.MedicinePurchaseReturn
+@{
+    ViewBag.Title = "MedicinePurchaseReturn";
+    Layout = "~/Areas/Pharmacy/Views/Shared/MyPharmacyMaster.cshtml";
+    int Sno = 0;
+}
+
+<div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Medicine Purchase Return</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row clearfix">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="card">
+                            <div class="body">
+                                <div class="row">
+                                    <input type="hidden" id="hdnsubcategoryId" />
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>Medicine *</label>
+                                            @Html.DropDownListFor(model => model.MedicineId, new SelectList(ViewBag.Medicine, "MedicineId", "MedicineName"), new { @class = "form-control" })
+                                            @*<span class="text-danger" id="msgemail"></span>*@
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>Quantity *</label>
+                                            <input type="number" onchange="validdate('#txtquantity', '#msgquantity', 'Quantity');" id="txtquantity" class="form-control" />
+                                            <span class="text-danger" id="msgquantity"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>Invoice *</label>
+                                            @Html.DropDownListFor( model => model.InvoiceNo, new SelectList(ViewBag.MedicinePurchase, "MedicineId", "InvoiceNo"), new { @class = "form-control" })
+                                            @*<span class="text-danger" id="msgemail"></span>*@
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                @*<button class="btn btn-primary" id="btnSubmit" onclick="SubmitData();">Add</button>*@
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <span>
+                                    @ViewBag.msg
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row clearfix">
+    <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="card">
+            <div class="header">
+                <h2>SubCategory Details</h2>
+            </div>
+            <div class="body">
+                <div class="table-responsive">
+                    <button type="button" class="btn btn-raised btn-primary waves-effect" data-toggle="modal" data-target="#Modal">
+                        Purchase Return
+                    </button>
+                    <table class="table table-bordered table-striped table-hover dataTable js-exportable">
+                        <thead>
+                            <tr>
+                                <th>Sno:</th>
+                                <th>Medicine</th>
+                                <th>Quantity</th>
+                                <th>Invoice</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in ViewBag.ReturnList)
+                            {
+                                <tr>
+                                    <td>
+                                        @{ Sno++;}
+                                        @Sno
+                                    </td>
+                                    <td>@item.MyMedicine.MedicineName</td>
+                                    <td>@item.MyMedPurReturn.Quantity</td>
+                                    <td>@item.MyMedPurReturn.InvoiceNo</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

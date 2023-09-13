@@ -1,0 +1,51 @@
+﻿@model IHMS.Models.Admin
+@{
+    ViewBag.Title = "ProfileView";
+    Layout = "~/Areas/admindetailinfo/Views/Shared/MyAdminMaster.cshtml";
+    string status = string.Empty;
+}
+
+
+<div class="col-lg-12 col-md-12">
+    <div class="card mcard_3">
+        <div class="body">
+            <a><img src="~/UploadImage/@Model.Image" height="200" width="200" class="rounded-circle shadow " alt="profile-image"></a>
+            <h4 class="m-t-10">@Html.DisplayFor(x => x.Name)</h4>
+            <div class="row">
+                <div class="col-12">
+                    <ul class="social-links list-unstyled">
+                        <li><a title="facebook" href="https://www.facebook.com"><i class="zmdi zmdi-facebook"></i></a></li>
+                        <li><a title="twitter" href="https://www.twitter.com"><i class="zmdi zmdi-twitter"></i></a></li>
+                        <li><a title="instagram" href="https://www.instagram.com"><i class="zmdi zmdi-instagram"></i></a></li>
+                        <li><a title="google" href="https://www.google.com"><i class="zmdi zmdi-google"></i></a></li>
+                    </ul>
+                    <p><a href="mailto:" class="text-blue">@Html.DisplayFor(x => x.Email)</a> / @Html.DisplayFor(x => x.Contact)</p>
+
+                </div>
+                <div class="col-12">
+
+                    <small class="text-muted">Address: </small>
+                    @Html.DisplayFor(x => x.Address)
+                    <hr>
+                    <small class="text-muted">CNIC: </small>
+                    @Html.DisplayFor(x => x.CNIC)
+                    <hr>
+                    <small class="text-muted">Password: </small>
+                    @Html.DisplayFor(x => x.Password)
+                    <hr>
+                    <small class="text-muted">Status: </small>
+                    @if (Model.Status == 0)
+                    {
+                        status = "InActive";
+                    }
+                    else
+                    {
+                        status = "Active";
+                    }
+                    @status
+                    <hr>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

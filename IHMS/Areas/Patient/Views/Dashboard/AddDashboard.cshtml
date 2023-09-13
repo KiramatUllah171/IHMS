@@ -1,0 +1,57 @@
+﻿@model IHMS.Models.DoctorSchedule
+@{
+    ViewBag.Title = "AddDashboard";
+    Layout = "~/Areas/Patient/Views/Shared/MyPatientMaster.cshtml";
+    int Sno = 0;
+}
+
+<div class="card-body">
+    <h2>Doctor Schedule</h2>
+    <div class="table-responsive">
+        <table class="table data-table table-striped table-hover data-table js-exportable product_item_list c_table theme-color mb-0 footable footable-1 footable-paging footable-paging-center breakpoint-lg" style="">
+            <thead>
+                <tr class="footable-header">
+                    <th class="footable-sortable footable-first-visible" style="display: table-cell;">Sno:<span class="fooicon fooicon-sort"></span></th>
+                    <th class="footable-sortable footable-first-visible" style="display: table-cell;">Image:<span class="fooicon fooicon-sort"></span></th>
+                    <th class="footable-sortable" style="display: table-cell;">Doc Name<span class="fooicon fooicon-sort"></span></th>
+                    <th class="footable-sortable" style="display: table-cell;">Department<span class="fooicon fooicon-sort"></span></th>
+                    <th class="footable-sortable" style="display: table-cell;">Date<span class="fooicon fooicon-sort"></span></th>
+                    <th data-breakpoints="sm xs" class="footable-sortable" style="display: table-cell;">StartTime<span class="fooicon fooicon-sort"></span></th>
+                    <th data-breakpoints="sm xs" class="footable-sortable" style="display: table-cell;">EndTime<span class="fooicon fooicon-sort"></span></th>
+                    <th data-breakpoints="xs" class="footable-sortable" style="display: table-cell;">ConsultingTime<span class="fooicon fooicon-sort"></span></th>
+                    <th data-breakpoints="xs" class="footable-sortable" style="display: table-cell;">Action<span class="fooicon fooicon-sort"></span></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var item in ViewBag.ScheduleList)
+                {
+                    <tr>
+                        <td>
+                            @{Sno++;}
+                            @Sno
+                        </td>
+                        <td><img src="~/UploadImage/@item.MyDoctor.Image" width="48" alt="Product img" /></td>
+                        <td>@item.MyDoctor.DoctorName</td>
+                        <td>@item.MyDepartment.DepartmentName</td>
+                        <td>@Convert.ToDateTime(item.MySchedule.ScheduleDate).ToString("ddd dd MMM, yyyy")</td>
+                        <td>@Convert.ToDateTime(item.MySchedule.StartTime).ToString("h:mm tt")</td>
+                        <td>@Convert.ToDateTime(item.MySchedule.EndTime).ToString("h:mm tt")</td>
+                        <td>@Convert.ToDateTime(item.MySchedule.ConsultingTime).ToString("h:mm tt")</td>
+
+                        <td>
+                            @Html.ActionLink("Request Appointment", "RequestAppointment", new { DocId = item.MyDoctor.DoctorId }, new { @class = "btn btn-primary" })
+
+                            @*@Html.ActionLink("Request Appointment", "RequestAppointment", new { DocId = item.MyDoctor.DoctorId },new { onclick= "Request();" })*@
+
+                            @*<a href="#" class="btn btn-primary" onclick="Delete(@item.MyDoctor.DoctorId);">Delete</a>*@
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+

@@ -1,0 +1,332 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/admindetailinfo/Views/Shared/MyAdminMaster.cshtml";
+    int Sno = 0;
+    int Sno2 = 0;
+    int Sno3 = 0;
+    int Sno4 = 0;
+    int Sno5 = 0;
+}
+
+<h3 class="text-center">Administrator Detail Board</h3>
+<div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Doctor</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row clearfix">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="card">
+                            <div class="body">
+                                <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <table class="table table-bordered table-striped table-hover dataTable js-exportable ">
+                                        <thead>
+                                            <tr>
+                                                <th>Sno:</th>
+                                                <th>Doc Name</th>
+                                                <th>Email</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var item in ViewBag.doct)
+                                            {
+                                                <tr>
+                                                    <td>
+                                                        @{ Sno++;}
+                                                        @Sno
+                                                    </td>
+                                                    <td>
+                                                        @item.DoctorName
+                                                    </td>
+                                                    <td>
+                                                        <a href="mailto:" class="text-blue">@item.Email</a>
+                                                    </td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="Modal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Pharmacist</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row clearfix">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="card">
+                            <div class="body">
+                                <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <table class="table table-bordered table-striped table-hover dataTable js-exportable ">
+                                        <thead>
+                                            <tr>
+                                                <th>Sno:</th>
+                                                <th>Pharmacist Name</th>
+                                                <th>Email</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var item in ViewBag.phar)
+                                            {
+                                                <tr>
+                                                    <td>
+                                                        @{ Sno2++;}
+                                                        @Sno2
+                                                    </td>
+                                                    <td>
+                                                        @item.Name
+                                                    </td>
+                                                    <td>
+                                                        <a href="mailto:" class="text-blue">@item.Email</a>
+                                                    </td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="Modal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Room</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row clearfix">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="card">
+                            <div class="body">
+                                <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <table class="table table-bordered table-striped table-hover dataTable js-exportable ">
+                                        <thead>
+                                            <tr>
+                                                <th>Sno:</th>
+                                                <th>Room No</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var item in ViewBag.r)
+                                            {
+                                                <tr>
+                                                    <td>
+                                                        @{ Sno3++;}
+                                                        @Sno3
+                                                    </td>
+                                                    <td>
+                                                        @item.RoomNo
+                                                    </td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="Modal4" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Room Type</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row clearfix">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="card">
+                            <div class="body">
+                                <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <table class="table table-bordered table-striped table-hover dataTable js-exportable ">
+                                        <thead>
+                                            <tr>
+                                                <th>Sno:</th>
+                                                <th>Room Type</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var item in ViewBag.rt)
+                                            {
+                                                <tr>
+                                                    <td>
+                                                        @{ Sno4++;}
+                                                        @Sno4
+                                                    </td>
+                                                    <td>
+                                                        @item.Roomtype
+                                                    </td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="Modal5" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Department</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row clearfix">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="card">
+                            <div class="body">
+                                <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <table class="table table-bordered table-striped table-hover dataTable js-exportable ">
+                                        <thead>
+                                            <tr>
+                                                <th>Sno:</th>
+                                                <th>Department</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var item in ViewBag.dep)
+                                            {
+                                                <tr>
+                                                    <td>
+                                                        @{ Sno5++;}
+                                                        @Sno5
+                                                    </td>
+                                                    <td>
+                                                        @item.DepartmentName
+                                                    </td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row clearfix">
+
+        <div class="col-lg-3 col-md-6 col-sm-6 col-6 text-center">
+
+            <div class="card">
+                <a style="border:hidden" data-toggle="modal" data-target="#Modal5">
+                    <div class="body">
+                        <input type="text" class="knob" value="@ViewBag.Department " data-linecap="round" data-width="100" data-height="100" data-thickness="0.08" data-fgColor="#00adef" readonly />
+                        <p>Department</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6 col-6 text-center">
+            <div class="card">
+                <a style="border:hidden" data-toggle="modal" data-target="#Modal">
+                    <div class="body">
+                        <input type="text" class="knob" value="@ViewBag.Doctor" data-linecap="round" data-width="100" data-height="100" data-thickness="0.08" data-fgColor="#ee2558" readonly />
+                        <p>Doctor</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6 col-6 text-center">
+            <div class="card">
+                <a style="border:hidden" data-toggle="modal" data-target="#Modal2">
+                    <div class="body">
+                        <input type="text" class="knob" value="@ViewBag.Pharmacist" data-linecap="round" data-width="100" data-height="100" data-thickness="0.08" data-fgColor="#00adef" readonly>
+                        <p>Pharmacist</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6 col-6 text-center">
+            <div class="card">
+                <a style="border:hidden" data-toggle="modal" data-target="#Modal3">
+                    <div class="body">
+                        <input type="text" class="knob" value="@ViewBag.Room" data-linecap="round" data-width="100" data-height="100" data-thickness="0.08" data-fgColor="#ee2558" readonly>
+                        <p>Room</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6 col-6 text-center">
+            <div class="card">
+                <a style="border:hidden" data-toggle="modal" data-target="#Modal4">
+                    <div class="body">
+                        <input type="text" class="knob" value="@ViewBag.RoomType" data-linecap="round" data-width="100" data-height="100" data-thickness="0.08" data-fgColor="#00adef" readonly>
+                        <p>RoomType</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+

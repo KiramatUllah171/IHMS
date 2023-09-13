@@ -1,0 +1,112 @@
+﻿@model IHMS.Models.Room
+@{
+    ViewBag.Title = "Room";
+    Layout = "~/Areas/admindetailinfo/Views/Shared/MyAdminMaster.cshtml";
+}
+
+<div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Room</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row clearfix">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="card">
+                            <div class="body">
+                                <div class="row">
+                                    <input type="hidden" id="hdnroomId" />
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>Room No<strong class="text-danger">*</strong></label>
+                                            <input type="number" onchange="validdate('#txtroomno', '#msgroom', 'Room');" id="txtroomno" class="form-control">
+                                            <span class="text-danger" id="msgroom"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>Patient *</label>
+                                            @*@Html.DropDownListFor(model => model.PatientId, new SelectList(ViewBag.patient, "PatientId", "Name"), new { @class = "form-control" });*@
+                                            <div class="form-group form-float" onchange="validdateDropDowns('#ddlpat', '#msgpat', 'Patient')" id="ddlpat"></div>
+                                            @*<span class="text-danger" id="msgemail"></span>*@
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>RoomType *</label>
+
+                                            @*@Html.DropDownListFor(model=>model.RoomTypeId,new SelectList(ViewBag.roomtype,"RoomTypeId","Roomtype"), new { @class = "form-control" })*@
+                                            <div class="form-group form-float" onchange="validdateDropDowns('#ddlrt', '#msgroomtype', 'Room Type')" id="ddlrt"></div>
+                                            @*<span class="text-danger" id="msgcon"></span>*@
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>Status</label>
+                                            <select class="form-control" onchange="validdateDropDowns('#ddlstatus', '#msgCatStatus', 'Status');" id="ddlstatus">
+                                                <option value="-1">----Select Status----</option>
+                                                <option value="1">Active</option>
+                                                <option value="0">InActive</option>
+                                            </select>
+                                            <span class="text-danger" id="msgCatStatus"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                @*<button class="btn btn-primary" id="btnSubmit" onclick="SubmitData();">Add</button>*@
+                                <input type="submit" class="btn btn-raised btn-primary waves-effect" onclick="SubmitData();" id="btnSubmit" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row clearfix">
+    <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="card">
+            <div class="header">
+                <h2>Room Details</h2>
+            </div>
+            <div class="body">
+                <div class="table-responsive">
+                    <button type="button" class="btn btn-raised btn-primary waves-effect" data-toggle="modal" data-target="#Modal">
+                        Add Room
+                    </button>
+                    <table class="table table-bordered table-striped table-hover dataTable js-exportable">
+                        <thead>
+                            <tr>
+                                <th>Sno:</th>
+                                <th>Room No</th>
+                                <th>Roomtype</th>
+                                <th>Patient</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="mytable">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<script type="text/javascript" src="~/Scripts/jquery-3.4.1.js"></script>
+<link href="~/IHMSJS/iziToast.css" rel="stylesheet" />
+<script src="~/IHMSJS/iziToast.js"></script>
+<script src="~/IHMSJS/AdminJS/Room.js"></script>
+
+
+

@@ -1,0 +1,71 @@
+﻿@model IHMS.Models.MyModel
+@{
+    ViewBag.Title = "ViewAllNotification";
+    Layout = "~/Areas/Doctor/Views/Shared/MyDoctorMaster.cshtml";
+    int Sno = 0;
+    string status = string.Empty;
+}
+
+
+<div class="card-body">
+    <h2>Patient Request List</h2>
+    <div class="table-responsive">
+        <table class="table data-table table-striped table-hover data-table js-exportable product_item_list c_table theme-color mb-0 footable footable-1 footable-paging footable-paging-center breakpoint-lg" style="">
+            <thead>
+                <tr class="footable-header">
+                    <th class="footable-sortable footable-first-visible" style="display: table-cell;">Sno:<span class="fooicon fooicon-sort"></span></th>
+                    <th class="footable-sortable" style="display: table-cell;">Doctor Name<span class="fooicon fooicon-sort"></span></th>
+                    <th class="footable-sortable" style="display: table-cell;">Patient Name<span class="fooicon fooicon-sort"></span></th>
+                    <th data-breakpoints="sm xs" class="footable-sortable" style="display: table-cell;">AppointmentDate<span class="fooicon fooicon-sort"></span></th>
+                    <th data-breakpoints="sm xs" class="footable-sortable" style="display: table-cell;">AppointmentDay<span class="fooicon fooicon-sort"></span></th>
+                    <th data-breakpoints="xs" class="footable-sortable" style="display: table-cell;">AvailableTime<span class="fooicon fooicon-sort"></span></th>
+                    <th data-breakpoints="xs md" class="footable-sortable" style="display: table-cell;">Reason<span class="fooicon fooicon-sort"></span></th>
+                    <th data-breakpoints="sm xs md" class="footable-sortable footable-last-visible" style="display: table-cell;">Status<span class="fooicon fooicon-sort"></span></th>
+                    <th data-breakpoints="sm xs md" class="footable-sortable footable-last-visible" style="display: table-cell;">Action<span class="fooicon fooicon-sort"></span></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in ViewBag.AppointmentList)
+                {
+                    <tr>
+                        <td>
+                            @{ Sno++;}
+                            @Sno
+                        </td>
+                        <td>@item.MyDoctor.DoctorName</td>
+                        <td><h5>@item.MyPatient.Name</h5></td>
+                        <td>@Convert.ToDateTime(item.MyAppointment.AppointmentDate).ToString("ddd dd MMM,yyyy")</td>
+                        <td>@item.MyAppointment.AppointmentDay</td>
+                        <td>@Convert.ToDateTime(item.MyAppointment.AvailableTime).ToString("h:mm tt")</td>
+                        <td><h5>@item.MyAppointment.Reason</h5></td>
+                        <td>
+                            @if (item.MyAppointment.Status == 0)
+                            {
+                                //status = "In-Process";
+                                <h5><span class="col-green">In-Process</span></h5>
+
+                            }
+                            else if (item.MyAppointment.Status == 1)
+                            {
+                                <h5><span class="col-green">Approved</span></h5>
+                            }
+                            else if (item.MyAppointment.Status == 2)
+                            {
+                                <h5><span class="col-orange">Completed</span></h5>
+                            }
+                            else
+                            {
+                                <h5><span class="col-red">Rejected</span></h5>
+                            }
+                            @status
+                        </td>
+                        <td>
+                            @Html.ActionLink("View Appointment", "ViewAppointment", new { appID = item.MyAppointment.AppointmentID }, new { @class = "btn btn-warning" })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+

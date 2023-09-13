@@ -1,0 +1,77 @@
+﻿@model IHMS.Models.Appointment
+@{
+    ViewBag.Title = "AddAppointment";
+    Layout = "~/Areas/Doctor/Views/Shared/MyDoctorMaster.cshtml";
+    int Sno = 0;
+    string status = string.Empty;
+}
+
+<div class="card-body">
+    <h2 class="text-center">Patient Request List</h2>
+    <div class="table-responsive">
+        <span class="text-red">
+            @ViewBag.msg
+            @TempData["msg"]
+        </span>
+        <table id="datatable" class="table data-table table table-striped">
+            <thead>
+                <tr>
+                    <th>Sno:</th>
+                    <th>Doctor Name</th>
+                    <th>Patient Name</th>
+                    <th>AppointmentDate</th>
+                    <th>AppointmentDay</th>
+                    <th>AvailableTime</th>
+                    <th>Reason</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in ViewBag.AppointmentList)
+                {
+                    <tr>
+                        <td>
+                            @{ Sno++;}
+                            @Sno
+                        </td>
+                        <td>@item.MyDoctor.DoctorName</td>
+                        <td>@item.MyPatient.Name</td>
+                        <td>@item.MyAppointment.AppointmentDate</td>
+                        <td>@item.MyAppointment.AppointmentDay</td>
+                        <td>@item.MyAppointment.AvailableTime</td>
+                        <td>@item.MyAppointment.Reason</td>
+                        <td>
+                            @if (item.MyAppointment.Status == 0)
+                            {
+                                //status = "In-Process";
+                                <span class="col-green">In-Process</span>
+
+                            }
+                            else if (item.MyAppointment.Status == 1)
+                            {
+                                <span class="col-green">Approved</span>
+                            }
+                            else if (item.MyAppointment.Status == 2)
+                            {
+                                <span class="col-orange">Completed</span>
+                            }
+                            else
+                            {
+                                <span class="col-red">Rejected</span>
+                            }
+                            @status
+                        </td>
+                        <td>
+
+                            @Html.ActionLink("Delete", "Delete", new { ID = item.MyAppointment.AppointmentID }, new
+                            {
+                            onclick = "return confirm('Are you want to Remove (" + item.MyPatient.Name + ") From list ?');"
+                            })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

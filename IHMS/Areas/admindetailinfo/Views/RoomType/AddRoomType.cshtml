@@ -1,0 +1,85 @@
+﻿@model IHMS.Models.RoomType
+@{
+    ViewBag.Title = "Room Type";
+    Layout = "~/Areas/admindetailinfo/Views/Shared/MyAdminMaster.cshtml";
+}
+
+<div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Room Type</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row clearfix">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="card">
+                            <div class="body">
+                                <div class="row">
+                                    <input type="hidden" id="hdnroomtypeId" />
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>Room Type *</label>
+                                            <input type="text" onchange="validdate('#txtroomtype', '#msgname', 'Room Type');" id="txtroomtype" class="form-control" placeholder="Room Type">
+                                            <span class="text-danger" id="msgname"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                @*<button class="btn btn-primary" id="btnSubmit" onclick="SubmitData();">Add</button>*@
+                                <input type="submit" class="btn btn-raised btn-primary waves-effect" onclick="SubmitData();" id="btnSubmit" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row clearfix">
+    <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="card">
+            <div class="header">
+                <h2>Room Type Details</h2>
+            </div>
+            <div class="body">
+                <div class="table-responsive">
+                    <button type="button" class="btn btn-raised btn-primary waves-effect" data-toggle="modal" data-target="#Modal">
+                        Add Room Type
+                    </button>
+                    <table class="table table-bordered table-striped table-hover dataTable js-exportable">
+                        <thead>
+                            <tr>
+                                <th>Sno:</th>
+                                <th>Room Type</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="mytable">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Jquery Core Js -->
+<script src="~/assets/bundles/libscripts.bundle.js"></script>
+<script src="~/assets/bundles/vendorscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js -->
+
+<script type="text/javascript" src="~/Scripts/jquery-3.4.1.js"></script>
+<link href="~/IHMSJS/iziToast.css" rel="stylesheet" />
+<script src="~/IHMSJS/iziToast.js"></script>
+<script src="~/IHMSJS/AdminJS/RoomType.js"></script>
+
+
+
+

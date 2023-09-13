@@ -1,0 +1,123 @@
+﻿@model IHMS.Models.MedicinePurchase
+@{
+    ViewBag.Title = "MedicinePurchase";
+    Layout = "~/Areas/Pharmacy/Views/Shared/MyPharmacyMaster.cshtml";
+    int Sno = 0;
+    string Status = string.Empty;
+}
+
+
+
+<div class="card">
+    <div class="body col-md-12">
+        <div class="row">
+            <input type="hidden" id="hdnmedpurchaseId" />
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Medicine *</label>
+                    <div class="form-group form-float" onchange="validdateDropDowns('#ddlmed', '#msgmed', 'Medicine Name')" id="ddlmed"></div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Invoice *</label>
+                    @Html.TextBoxFor(Model => Model.InvoiceNo, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Quantity *</label>
+                    <input type="number" onchange="validdate('#txtquantity', '#msgquantity', 'Quantity');" id="txtquantity" class="form-control" />
+                    <span class="text-danger" id="msgquantity"></span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Price *</label>
+                    <input type="number" onchange="validdate('#txtprice', '#msgprice', 'Price');" id="txtprice" class="form-control" />
+                    <span class="text-danger" id="msgprice"></span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Discount *</label>
+                    <input type="number" onchange="validdate('#txtdiscount', '#msgdiscount', 'Discount');" id="txtdiscount" class="form-control" />
+                    <span class="text-danger" id="msgdiscount"></span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Bonus *</label>
+                    <input type="number" onchange="validdate('#txtbonus', '#msgbonus', 'Bonus');" id="txtbonus" class="form-control" />
+                    <span class="text-danger" id="msgbonus"></span>
+                </div>
+            </div>
+            <!--<div class="col-md-6">
+                <div class="form-group">
+                    <label>Distributor *</label>-->
+                    @*@Html.DropDownListFor(model => model.SupplierId, new SelectList(ViewBag.distributor, "DistributorId", "SupplierName"), new { @class = "form-control" })*@
+
+                    <!--<div class="form-group form-float" onchange="validdateDropDowns('#ddldis', '#msgdis', 'Distributor Name')" id="ddldis"></div>
+                </div>
+            </div>-->
+            <div class="col-md-6">
+                <div class="form-group">
+                    <button class="btn btn-primary" id="btnSubmit" onclick="AddMore();">Add</button>
+                    <button class="btn btn-primary" id="btnSubmit" onclick="Confirm();">Confirm</button><br />
+                    <span class="text-success">@TempData["msg"]</span>
+                    @*@using (Html.BeginForm("AddMedPurchase", "MedPurchase", FormMethod.Post))
+                    {
+
+                        <input type="submit" name="Confirm" value="Confirm" class="btn btn-danger" />
+                    }*@
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+<div class="col-md-12 table-responsive">
+    <table class="table table-bordered">
+        @if (ViewBag.ListMedicinePur != null)
+        {
+            <thead>
+                <tr>
+                    <th>Sno:</th>
+                    <th>MedName</th>
+                    <th>PPrice</th>
+                    <th>QTY</th>
+                    <th>Discount</th>
+                    <th>Bonus</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in ViewBag.ListMedicinePur)
+                {
+                    <tr>
+                        <td>
+                            @{ Sno++;}
+                            @Sno
+                        </td>
+                        <td>@item.MyMedicine.MedicineName</td>
+                        <td>@item.MyMedicinePurchase.Quantity</td>
+                        <td>@item.MyMedicinePurchase.PurchasePrice</td>
+                        <td>@item.MyMedicinePurchase.Discount</td>
+                        <td>@item.MyMedicinePurchase.Bonus</td>
+                    </tr>
+                }
+            </tbody>
+        }
+    </table>
+</div>
+
+@*@Html.Partial("_MedPurchase")*@
+<script type="text/javascript" src="~/Scripts/jquery-3.4.1.js"></script>
+<link href="~/IHMSJS/iziToast.css" rel="stylesheet" />
+<script src="~/IHMSJS/iziToast.js"></script>
+<script src="~/IHMSJS/PharmacyJS/MedPurchase.js"></script>
+
+
+

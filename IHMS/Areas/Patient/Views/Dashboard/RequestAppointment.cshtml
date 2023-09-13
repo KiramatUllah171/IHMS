@@ -1,0 +1,120 @@
+﻿@model IHMS.Models.MyModel
+@{
+    ViewBag.Title = "RequestAppointment";
+    Layout = "~/Areas/Patient/Views/Shared/MyPatientMaster.cshtml";
+    string status = string.Empty;
+}
+
+
+@using (Html.BeginForm())
+{
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card border-danger">
+                <div class="card-header d-flex justify-content-between">
+                    <div class="header-title">
+                        <h4 class="card-title text-danger">Patient Detail AND Doctor Detail</h4>
+                    </div>
+                </div>
+                <div class="card-body">
+
+                    <div>
+                        <div class="row">
+                            @Html.HiddenFor(Model => Model.MyDoctor.DoctorId)
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <h4><span class="text-danger">Patient Data</span></h4>
+                                    <label>Patient Name *</label>
+                                    <span class="text-green">@Html.DisplayFor(x => x.MyPatient.Name)</span>
+                                    <br />
+                                    <label>Email *</label>
+                                    <span><a href="mailto:" class="text-blue">@Html.DisplayFor(x => x.MyPatient.Email)</a></span>
+                                    <br />
+                                    <label>Contact *</label>
+                                    <span class="text-green">@Html.DisplayFor(x => x.MyPatient.Contact)</span>
+                                    <br />
+                                    <label>Password *</label>
+                                    <span class="text-green">@Html.DisplayFor(x => x.MyPatient.Password)</span>
+                                    <br />
+                                    <label>DOB *</label>
+                                    <span class="text-green">@Html.DisplayFor(x => x.MyPatient.DOB)</span>
+                                    <br />
+                                    <label>Gender *</label>
+                                    <span class="text-green">@Html.DisplayFor(x => x.MyPatient.Gender)</span>
+                                    <br />
+                                    <label>Maritial Status *</label>
+                                    <span class="text-green">@Html.DisplayFor(x => x.MyPatient.MaritialStatus)</span>
+                                </div>
+                            </div>
+                            <br />
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Doc Image *</label>
+                                    <a><img src="~/UploadImage/@Model.MyDoctor.Image" class="rounded-circle shadow " alt="profile-image"></a>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <h4><span class="text-danger">Doctor Data</span></h4>
+                                <div class="form-group">
+                                    <label>Name *</label>
+                                    <span class="text-green">@Html.DisplayFor(x => x.MyDoctor.DoctorName)</span>
+                                    <br />
+                                    <label>Email *</label>
+                                    <span><a href="mailto:" class="text-blue">@Html.DisplayFor(x => x.MyDoctor.Email)</a></span>
+                                    <br />
+                                    <label>Contact *</label>
+                                    <span class="text-green">@Html.DisplayFor(x => x.MyDoctor.Contact)</span>
+                                    <br />
+                                    @*<label>Password *</label>
+                                        <span class="text-green">@Html.DisplayFor(x => x.MyDoctor.Password)</span>
+                                        <br />*@
+                                    <label>DoctorFee *</label>
+                                    <span class="text-green">@Html.DisplayFor(x => x.MyDoctor.DoctorFee)</span>
+                                    <br />
+                                    <label>Education *</label>
+                                    <span class="text-green">@Html.DisplayFor(x => x.MyDoctor.Education)</span>
+                                    <br />
+                                    <label>Dept Name *</label>
+                                    <span class="text-green">@Html.DisplayFor(x => x.MyDepartment.DepartmentName)</span>
+                                    <br />
+                                    <label>Status *</label>
+                                    @if (Model.MyDoctor.Status == 0)
+                                    {
+                                        status = "InActive";
+                                    }
+                                    else
+                                    {
+                                        status = "Available";
+                                    }
+                                    <span class="text-green">@status</span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Reason</label>
+                                    @Html.TextBoxFor(x => x.MyAppointment.Reason, new { @class = "form-control border-danger", required = "required" })
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>AppointmentDate*</label>
+                                    @Html.TextBoxFor(Model => Model.MyAppointment.AppointmentDate, new { @class = "form-control border-danger", required = "required", Type = "datetime-local" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <input type="submit" value="Submit" class="btn btn-orange" />
+                    <span class="text-success">@TempData["msg1"]</span>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+
+
+
+@*<script type="text/javascript" src="~/Scripts/jquery-3.4.1.js"></script>
+<link href="~/IHMSJS/iziToast.css" rel="stylesheet" />
+<script src="~/IHMSJS/iziToast.js"></script>
+<script src="~/IHMSJS/PatientJS/PatientRequestAppointment.js"></script>*@

@@ -1,0 +1,114 @@
+﻿@model IHMS.Models.Pharmacist
+@{
+    ViewBag.Title = "Login";
+    Layout = null;
+}
+
+<!doctype html>
+<html class="no-js " lang="en">
+
+<!-- Mirrored from wrraptheme.com/templates/aero/html/sign-in.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 02 Apr 2022 06:53:43 GMT -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <meta name="description" content="Responsive Bootstrap 4 and web Application ui kit.">
+
+    <title>:: Aero Bootstrap4 Admin :: Sign In</title>
+    <!-- Favicon-->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <!-- Custom Css -->
+    <link rel="stylesheet" href="~/assets/plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/assets/css/style.min.css">
+</head>
+
+<body class="theme-blush">
+
+    <div class="authentication">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-sm-12">
+                    <div class="card auth_form">
+                        <div class="header">
+                            <img class="logo" src="~/assets/images/logo.svg" alt="">
+                            <h5>Log in</h5>
+                        </div>
+                        <div class="body">
+                            <div class="input-group mb-3">
+                                <input type="text" onchange="validdate1('#txtemail','#email','Email')" id="txtemail" class="form-control" placeholder="Username">
+                                <div class="input-group-append">
+                                    <span class="input-group-text text-danger"><i class="zmdi zmdi-account-circle"></i></span>
+                                </div>
+                            </div>
+                            <span class="text-danger" id="email"></span>
+                            <div class="input-group mb-3">
+                                <input type="password" onchange="validdate('#txtpassword','#password','Password')" id="txtpassword" class="form-control" placeholder="Password">
+                                <div class="input-group-append">
+                                    <span class="input-group-text">
+                                        <a href="javascript:void(0)" class="toggle-password" title="Toggle Password Visibility">
+
+                                            <i class="zmdi zmdi-eye"></i>
+                                        </a>
+                                    </span>
+                                </div>
+                            </div>
+                            <span class="text-danger" id="password"></span>
+                            <div class="checkbox">
+                                <input id="remember_me" type="checkbox">
+                            </div>
+                            <div class="text-center mt-4">
+                                <button id="btnSubmit" onclick="Login();" class="btn btn-success btn-block"><h5>Sign In</h5></button>
+                            </div>
+                            <div class="text-center mt-4">
+                                <a href="@Url.Action("ForgotPassword","Account", new { Area = "Pharmacy" })" class="btn btn-primary">Forgot Password</a>
+                            </div>
+                            <div class="signin_with mt-3">
+                                @*<div class="signin_with mt-3">
+                                        <a class="link" href="@Url.Action("SignUp","Account", new { Area = "Pharmacy" })">or Sign Up using</a>
+                                    </div>*@
+                                <a class="btn btn-primary btn-icon btn-icon-mini btn-round facebook" href="https://www.facebook.com"><i class="zmdi zmdi-facebook"></i></a>
+                                <a class="btn btn-primary btn-icon btn-icon-mini btn-round twitter" href="https://www.twitter.com"><i class="zmdi zmdi-twitter"></i></a>
+                                <a class="btn btn-primary btn-icon btn-icon-mini btn-round " href="https://www.instagram.com"><img src="~/assets/images/insta.jpeg"></a>
+                                <a class="btn btn-primary btn-icon btn-icon-mini btn-round google" href="https://www.google.com"><i class="zmdi zmdi-google"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8 col-sm-12">
+                    <div class="card">
+                        <img src="~/assets/images/signin.svg" alt="Sign In" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Jquery Core Js -->
+    <script src="~/assets/bundles/libscripts.bundle.js"></script>
+    <script src="~/assets/bundles/vendorscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js -->
+    <script type="text/javascript" src="~/Scripts/jquery-3.4.1.js"></script>
+    <link href="~/IHMSJS/iziToast.css" rel="stylesheet" />
+    <script src="~/IHMSJS/iziToast.js"></script>
+    <script src="~/IHMSJS/PharmacyJS/Pharmacist.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.toggle-password').click(function () {
+                var input = $('#txtpassword');
+                var icon = $(this).find('i.zmdi-eye');
+
+                if (input.attr('type') === 'password') {
+                    input.attr('type', 'text');
+                    icon.removeClass('zmdi-eye');
+                    icon.addClass('zmdi-eye-off');
+                } else {
+                    input.attr('type', 'password');
+                    icon.removeClass('zmdi-eye-off');
+                    icon.addClass('zmdi-eye');
+                }
+            });
+        });
+    </script>
+</body>
+
+<!-- Mirrored from wrraptheme.com/templates/aero/html/sign-in.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 02 Apr 2022 06:53:44 GMT -->
+</html>
+

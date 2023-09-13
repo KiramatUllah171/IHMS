@@ -1,0 +1,42 @@
+﻿@model IEnumerable<IHMS.Models.DoctorSchedule>
+@{
+    int Sno = 0;
+}
+<table class="table table-bordered table-striped table-hover dataTable js-exportable">
+    <thead>
+        <tr>
+            <th>Sno:</th>
+            <th>Doc Name</th>
+            <th>Department</th>
+            <th>Schedule date</th>
+            <th>Start time</th>
+            <th>End Time</th>
+            <th>Consulting Time</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody id="mytable">
+        @foreach (var item in ViewBag.ScheduleList)
+        {
+            <tr>
+                <td>
+                    @{ Sno++;}
+                    @Sno
+                </td>
+                <td>@item.MyDoctor.DoctorName</td>
+                <td>@item.MyDepartment.DepartmentName</td>
+                <td>@Convert.ToDateTime(item.MySchedule.ScheduleDate).ToString("ddd dd MMM, yyyy")</td>
+                <td>@Convert.ToDateTime(item.MySchedule.StartTime).ToString("h:mm tt")</td>
+                <td>@Convert.ToDateTime(item.MySchedule.EndTime).ToString("h:mm tt")</td>
+                <td>@Convert.ToDateTime(item.MySchedule.ConsultingTime).ToString("h:mm tt")</td>
+                <td>
+                    @*@Html.ActionLink(" ", "AddDoctorSchedule", new { DsId = item.MySchedule.ScheduleId },
+                        new { @class = "ri-pencil-line mr-0 badge bg-success mr-2" })*@
+
+                    <button type="button" class="btn btn-primary" onclick="Edit(@item.MySchedule.ScheduleId);">Edit</button>
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

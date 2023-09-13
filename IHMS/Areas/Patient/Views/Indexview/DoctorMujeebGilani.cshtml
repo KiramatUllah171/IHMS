@@ -1,0 +1,111 @@
+﻿@model IHMS.Models.tblPatient
+@{
+    ViewBag.Title = "DoctorNisar";
+    Layout = "~/Areas/Patient/Views/Shared/MyIndexMaster.cshtml";
+}
+<section id="page-banner" class="pt-105 pb-130 bg_cover" data-overlay="8" style="background-image: url(images/page-banner-3.jpg)">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="page-banner-cont">
+                    <h2>Doctor</h2>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="@Url.Action("Index","Indexview","Patient")">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Doctor Mujeeb Gilani</li>
+                        </ol>
+                    </nav>
+                </div> <!-- page banner cont -->
+            </div>
+        </div> <!-- row -->
+    </div> <!-- container -->
+</section>
+
+<section id="teachers-singel" class="pt-70 pb-120 gray-bg">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-4 col-md-8">
+                <div class="teachers-left mt-50">
+                    <div class="hero">
+                        <img src=~/IndexAssets/images/teachers/t-6.jpg alt="Teachers">
+                    </div>
+                    <div class="name">
+                        <h6>Mujeeb Gilani</h6>
+                        <span>Cardiology physician</span>
+                    </div>
+                    <div class="description">
+                        <p>Cardiology is a medical specialty that focuses on the study, diagnosis, and treatment of diseases and conditions related to the heart and blood vessels. Cardiologists are specialized physicians who possess in-depth knowledge and expertise in assessing and managing various cardiac disorders. They utilize advanced diagnostic tools and techniques to evaluate heart function, identify abnormalities, and develop personalized treatment plans to improve cardiovascular health. Through interventions such as medications, lifestyle modifications, and invasive procedures, cardiologists aim to prevent, treat, and manage heart diseases, ultimately promoting the overall well-being and longevity of patients.</p>
+                    </div>
+                </div> <!-- teachers left -->
+            </div>
+            <div class="col-lg-8">
+                <div class="teachers-right mt-50">
+                    <ul class="nav nav-justified" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="active" id="dashboard-tab" data-toggle="tab" href="#dashboard" role="tab" aria-controls="dashboard" aria-selected="true">Dashboard</a>
+                        </li>
+                        <li class="nav-item">
+                            <a id="courses-tab" data-toggle="tab" href="#courses" role="tab" aria-controls="courses" aria-selected="false">Contact</a>
+                        </li>
+                    </ul> <!-- nav -->
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="dashboard" role="tabpanel" aria-labelledby="dashboard-tab">
+                            <div class="dashboard-cont">
+                                <div class="singel-dashboard pt-40">
+                                    <h5>About</h5>
+                                    <p>A cardiologist is a physician who specializes in the field of cardiology, which involves the study, diagnosis, and treatment of heart diseases and conditions. Cardiologists undergo extensive medical training and education to become experts in the cardiovascular system and its disorders. They play a critical role in the prevention, management, and treatment of various heart-related conditions, ensuring the overall cardiovascular health of their patients.</p>
+                                </div> <!-- singel dashboard -->
+                                <div class="singel-dashboard pt-40">
+                                    <h5>Acchivments</h5>
+                                    <p>
+                                        Academic and Professional Achievements: Cardiologists may have completed advanced degrees, research projects, or published significant research papers in the field of cardiology. They may have also received prestigious awards or recognition for their contributions to the field.
+
+                                        Clinical Excellence: Cardiologists may have a track record of providing high-quality patient care, achieving positive outcomes in managing heart diseases, and delivering exceptional treatment and interventions.
+
+                                        Leadership and Advocacy: Cardiologists may have taken on leadership roles in professional organizations, committees, or research institutions. They may have contributed to shaping policies, guidelines, and advancements in the field of cardiology. They may also be actively involved in advocating for cardiovascular health awareness and prevention.
+                                    </p>
+                                </div> <!-- singel dashboard -->
+                                <div class="singel-dashboard pt-40">
+                                    <h5>My Objective</h5>
+                                    <p>
+                                        Diagnosis and Treatment: Cardiologists aim to accurately diagnose heart diseases and conditions through various diagnostic tests, including imaging techniques, stress tests, and electrocardiograms. Their objective is to develop personalized treatment plans to manage and improve the patient's heart health, which may involve lifestyle modifications, medication, or interventions such as angioplasty or heart surgery.
+
+                                        Preventive Care: Cardiologists focus on preventive care to identify and mitigate risk factors for heart diseases. They educate patients about healthy lifestyle choices, including diet, exercise, and smoking cessation, to prevent the development or progression of cardiovascular conditions.
+
+                                        Continuum of Care: Cardiologists provide comprehensive and continuous care to their patients, from the initial diagnosis and treatment to long-term management and follow-up. They monitor the patient's heart health, adjust treatment plans as needed, and collaborate with other healthcare professionals to ensure holistic care.
+                                    </p>
+                                </div> <!-- singel dashboard -->
+                            </div> <!-- dashboard cont -->
+                        </div>
+                        <div class="tab-pane fade" id="courses" role="tabpanel" aria-labelledby="courses-tab">
+                            <div class="courses-cont pt-20">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="singel-course mt-30">
+
+                                            <div class="cont border">
+
+                                                <h6>mujeeb@gmail.com</h6>
+                                                <h6>03498264236</h6> <br />
+                                                <h5>For Appointment</h5><a href="@Url.Action("AddDashboard","Dashboard","Patient")"><h4>Click Me</h4></a>
+                                                <div class="course-teacher">
+                                                    <div class="thum">
+                                                        <a href="#"><img src="~/IndexAssets/images/teachers/t-6.jpg" alt="teacher"></a>
+                                                    </div>
+                                                    <div class="name">
+                                                        <h6>Mujeeb Gilani</h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div> <!-- singel course -->
+                                    </div>
+
+                                </div> <!-- row -->
+                            </div> <!-- courses cont -->
+                        </div>
+                    </div> <!-- tab content -->
+                </div> <!-- teachers right -->
+            </div>
+        </div> <!-- row -->
+    </div> <!-- container -->
+</section>

@@ -1,0 +1,117 @@
+﻿@model IHMS.Models.tblPatient
+@{
+    ViewBag.Title = "DoctorHammadMehsood";
+    Layout = "~/Areas/Patient/Views/Shared/MyIndexMaster.cshtml";
+}
+<section id="page-banner" class="pt-105 pb-130 bg_cover" data-overlay="8" style="background-image: url(images/page-banner-3.jpg)">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="page-banner-cont">
+                    <h2>Doctor</h2>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="@Url.Action("Index","Indexview","Patient")">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Doctor Hammad Mehsood</li>
+                        </ol>
+                    </nav>
+                </div> <!-- page banner cont -->
+            </div>
+        </div> <!-- row -->
+    </div> <!-- container -->
+</section>
+
+<section id="teachers-singel" class="pt-70 pb-120 gray-bg">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-4 col-md-8">
+                <div class="teachers-left mt-50">
+                    <div class="hero">
+                        <img src=~/IndexAssets/images/teachers/t-8.jpg alt="Teachers">
+                    </div>
+                    <div class="name">
+                        <h6>Hammad Mehsood</h6>
+                        <span>Neurologist</span>
+                    </div>
+                    <div class="description">
+                        <p>
+                            A neurologist is a medical doctor who specializes in diagnosing, treating, and managing disorders of the nervous system. The nervous system includes the brain, spinal cord, and peripheral nerves. Neurologists are highly trained professionals who possess extensive knowledge and expertise in understanding the complex functions of the nervous system and addressing various neurological conditions.</p>
+
+                   
+                    </div>
+                </div> <!-- teachers left -->
+            </div>
+            <div class="col-lg-8">
+                <div class="teachers-right mt-50">
+                    <ul class="nav nav-justified" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="active" id="dashboard-tab" data-toggle="tab" href="#dashboard" role="tab" aria-controls="dashboard" aria-selected="true">Dashboard</a>
+                        </li>
+                        <li class="nav-item">
+                            <a id="courses-tab" data-toggle="tab" href="#courses" role="tab" aria-controls="courses" aria-selected="false">Contact</a>
+                        </li>
+                    </ul> <!-- nav -->
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="dashboard" role="tabpanel" aria-labelledby="dashboard-tab">
+                            <div class="dashboard-cont">
+                                <div class="singel-dashboard pt-40">
+                                    <h5>About</h5>
+                                    <p>
+                                        Overall, neurologists are dedicated healthcare professionals who specialize in diagnosing, treating, and managing disorders of the nervous system. Their expertise and compassion contribute to the well-being of patients with neurological conditions, helping them improve their health and quality of life.
+                                    </p>
+                                </div> <!-- singel dashboard -->
+                                <div class="singel-dashboard pt-40">
+                                    <h5>Acchivments</h5>
+                                    <p>
+                                        Advanced Education and Training: Neurologists undergo extensive education and training, including medical school, residency in neurology, and often further specialized fellowship training. These achievements equip them with the necessary skills and knowledge to provide specialized care to patients with neurological disorders.
+
+                                        Clinical Expertise: Neurologists develop clinical expertise in diagnosing and treating a wide range of neurological conditions, such as stroke, epilepsy, Parkinson's disease, multiple sclerosis, Alzheimer's disease, and others. Their ability to accurately diagnose complex neurological disorders and develop effective treatment plans is a significant achievement.
+
+                                        Research Contributions: Many neurologists engage in research activities to advance the understanding of neurological disorders and develop new treatment modalities. Their contributions to medical research help improve patient outcomes and shape the future of neurology.
+
+                                        Professional Recognition: Neurologists may receive recognition for their contributions to the field through awards, publications in medical journals, presentations at conferences, and participation in professional organizations. These achievements highlight their expertise and commitment to neurological care.
+
+                                    </p>
+                                </div> <!-- singel dashboard -->
+                                <div class="singel-dashboard pt-40">
+                                    <h5>My Objective</h5>
+                                    <p>
+                                        Diagnosis and Treatment: The primary objective of a neurologist is to accurately diagnose neurological disorders by conducting thorough medical evaluations, reviewing medical histories, and performing diagnostic tests. They then develop personalized treatment plans to manage and alleviate symptoms, improve quality of life, and prevent disease progression.
+
+                                        Patient Care: Neurologists strive to provide comprehensive and compassionate care to their patients. They aim to establish strong doctor-patient relationships, listen to patient concerns, and address their physical, emotional, and cognitive needs. They also provide education and support to patients and their families, empowering them to actively participate in their healthcare journey.
+                                    </p>
+                                </div> <!-- singel dashboard -->
+                            </div> <!-- dashboard cont -->
+                        </div>
+                        <div class="tab-pane fade" id="courses" role="tabpanel" aria-labelledby="courses-tab">
+                            <div class="courses-cont pt-20">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="singel-course mt-30">
+
+                                            <div class="cont border">
+
+                                                <h6>hammad@gmail.com</h6>
+                                                <h6>03498264236</h6> <br />
+                                                <h5>For Appointment</h5><a href="@Url.Action("AddDashboard","Dashboard","Patient")"><h4>Click Me</h4></a>
+                                                <div class="course-teacher">
+                                                    <div class="thum">
+                                                        <a href="#"><img src="~/IndexAssets/images/teachers/t-8.jpg" alt="teacher"></a>
+                                                    </div>
+                                                    <div class="name">
+                                                        <h6>Hammad Mehsood</h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div> <!-- singel course -->
+                                    </div>
+
+                                </div> <!-- row -->
+                            </div> <!-- courses cont -->
+                        </div>
+                    </div> <!-- tab content -->
+                </div> <!-- teachers right -->
+            </div>
+        </div> <!-- row -->
+    </div> <!-- container -->
+</section>

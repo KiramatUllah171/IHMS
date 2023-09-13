@@ -1,0 +1,89 @@
+﻿@model IHMS.Models.Stock
+@{
+    ViewBag.Title = "Stock";
+    int Sno = 0;
+    Layout = "~/Areas/Pharmacy/Views/Shared/MyPharmacyMaster.cshtml";
+}
+
+<h2>Stock</h2>
+
+<div>
+    @using (Html.BeginForm("StockData", "Stock", new { status = "1" }, FormMethod.Post))
+    {
+        <input type="submit" class="btn btn-success" value="InStock" />
+    }
+    <br />
+    @using (Html.BeginForm("StockData", "Stock", new { status = "0" }, FormMethod.Post))
+    {
+        <input type="submit" class="btn btn-danger" value="OutStock" />
+    }
+
+</div>
+
+@using (Html.BeginForm())
+{
+    <div class="card-body">
+        <div class="table-responsive">
+            <table id="datatable" class="table data-table table-striped">
+                <thead>
+                    <tr>
+                        <th>Sno</th>
+                        <th>Invoice No</th>
+                        <th>Medicine Name</th>
+                        <th>TotalQuantity</th>
+                        <th>RemainingQuantity</th>
+                        <th>SoldQuantity</th>
+                        <th>PurchasePrice</th>
+                        <th>SolidPrice</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in ViewBag.StockList)
+                    {
+                        <tr>
+                            <td>
+                                @{ Sno++;}
+                                @Sno
+                            </td>
+                            <td>
+                                @item.MyMedicinePurchase.InvoiceNo
+                            </td>
+                            <td>
+                                @item.MyMedicine.MedicineName
+                            </td>
+
+                            <td>
+                                @item.MyStock.TotalQuantity
+                            </td>
+                            <td>
+                                @item.MyStock.RemainingQuantity
+                            </td>
+                            <td>
+                                @item.MyStock.SoldQuantity
+                            </td>
+                            <td>
+                                @item.MyStock.PurchasePrice
+                            </td>
+                            <td>
+                                @item.MyStock.SolidPrice
+                            </td>
+                            <td>
+                                @if (item.MyStock.Status == 1)
+                                {
+                                    <span class="badge badge-success">Stock Available</span>
+                                }
+                                else
+                                {
+                                    <span class="badge badge-danger">Out of Stock</span>
+                                }
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+}
+

@@ -1,0 +1,300 @@
+﻿@model IHMS.Models.tblPatient
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Patient/Views/Shared/MyIndexMaster.cshtml";
+}
+
+<!--====== SLIDER PART START ======-->
+
+
+<section id="slider-part" class="slider-active">
+    <div class="single-slider bg_cover pt-150" style="background-image: url(images/slider/s-1.jpg)" data-overlay="4">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-7 col-lg-9">
+                    <div class="slider-cont">
+                        <h1 data-animation="bounceInLeft" data-delay="1s">Interior Hospital Management System</h1>
+                        <p data-animation="fadeInUp" data-delay="1.3s">"Good health and good sense are two of life's greatest blessing."I believe that the greatest gift you can give your family and the world is a healthy you.</p>
+                        <ul>
+                            @*<li><a data-animation="fadeInUp" data-delay="1.6s" class="main-btn" href="#">Read More</a></li>
+                            <li><a data-animation="fadeInUp" data-delay="1.9s" class="main-btn main-btn-2" href="#">Get Started</a></li>*@
+                        </ul>
+                    </div>
+                </div>
+            </div> <!-- row -->
+        </div> <!-- container -->
+    </div> <!-- single slider -->
+
+    <div class="single-slider bg_cover pt-150" style="background-image: url(images/slider/s-2.jpg)" data-overlay="4">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-7 col-lg-9">
+                    <div class="slider-cont">
+                        <h1 data-animation="bounceInLeft" data-delay="1s">Interior Hospital Management System</h1>
+                        <p data-animation="fadeInUp" data-delay="1.3s">"Time and health are two precious assets that we don't recognize and appreciate until they have been depleted"</p>
+                        <ul>
+                            @*<li><a data-animation="fadeInUp" data-delay="1.6s" class="main-btn" href="#">Read More</a></li>
+                            <li><a data-animation="fadeInUp" data-delay="1.9s" class="main-btn main-btn-2" href="#">Get Started</a></li>*@
+                        </ul>
+                    </div>
+                </div>
+            </div> <!-- row -->
+        </div> <!-- container -->
+    </div> <!-- single slider -->
+
+    <div class="single-slider bg_cover pt-150" style="background-image: url(images/slider/s-3.jpg)" data-overlay="4">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-7 col-lg-9">
+                    <div class="slider-cont">
+                        <h1 data-animation="bounceInLeft" data-delay="1s">Interior Hospital Management System</h1>
+                        <p data-animation="fadeInUp" data-delay="1.3s">"A fit healthy body---that is the best fasion statement."</p>
+                        <ul>
+                            @*<li><a data-animation="fadeInUp" data-delay="1.6s" class="main-btn" href="#">Read More</a></li>
+                            <li><a data-animation="fadeInUp" data-delay="1.9s" class="main-btn main-btn-2" href="#">Get Started</a></li>*@
+                        </ul>
+                    </div>
+                </div>
+            </div> <!-- row -->
+        </div> <!-- container -->
+    </div> <!-- single slider -->
+</section>
+
+<!--====== SLIDER PART ENDS ======-->
+<!--====== CATEGORY PART START ======-->
+<section id="category-part">
+    <div class="container">
+        <div class="category pt-40 pb-80">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="category-text pt-40">
+                        <h2>Best platform to Checkup everything</h2>
+                    </div>
+                </div>
+                <div class="col-lg-6 offset-lg-1 col-md-8 offset-md-2 col-sm-8 offset-sm-2 col-8 offset-2">
+                    <div class="row category-slied mt-40">
+                        <div class="col-lg-4">
+                            <a href="@Url.Action("SignIn","Account",new { Area="Doctor"})">
+                                <span class="singel-category text-center color-1">
+                                    @*<span class="icon">
+                                            <img src="~/IndexAssets/images/all-icon/123.jpg" alt="Icon">
+                                        </span>*@
+                                    <span class="cont">
+                                        <span>Doctors</span>
+                                    </span>
+                                </span> <!-- singel category -->
+                            </a>
+                        </div>
+                        <div class="col-lg-4">
+                            <a href="@Url.Action("SignIn","PatientAccount","Patient")">
+                                <span class="singel-category text-center color-2">
+                                    <span class="cont">
+                                        <span>Patient</span>
+                                    </span>
+                                </span> <!-- singel category -->
+                            </a>
+                        </div>
+                        <div class="col-lg-4">
+                            <a href="@Url.Action("SignIn","Account",new { Area="Pharmacy"})">
+                                <span class="singel-category text-center color-3">
+                                    @*<span class="icon">
+                                            <img src="~/IndexAssets/images/all-icon/download.jpeg" alt="Icon">
+                                        </span>*@
+                                    <span class="cont">
+                                        <span>Pharmacy</span>
+                                    </span>
+                                </span> <!-- singel category -->
+                            </a>
+                        </div>
+                        <div class="col-lg-4">
+                            <a href="@Url.Action("SigIn","Account","Doctor")">
+                                <span class="singel-category text-center color-1">
+                                    <span class="cont">
+                                        <span>Doctor</span>
+                                    </span>
+                                </span> <!-- singel category -->
+                            </a>
+                        </div>
+                        <div class="col-lg-4">
+                            <a href="@Url.Action("SignIn","PatientAccount","Patient")">
+                                <span class="singel-category text-center color-2">
+                                    <span class="cont">
+                                        <span>Patient</span>
+                                    </span>
+                                </span> <!-- singel category -->
+                            </a>
+                        </div>
+                        <div class="col-lg-4">
+                            <a href="@Url.Action("SignIn","Account","Pharmacy")">
+                                <span class="singel-category text-center color-3">
+                                    <span class="cont">
+                                        <span>Pharmacy</span>
+                                    </span>
+                                </span> <!-- singel category -->
+                            </a>
+                        </div>
+                    </div> <!-- category slied -->
+                </div>
+            </div> <!-- row -->
+        </div> <!-- category -->
+    </div> <!-- container -->
+</section>
+
+<!--====== CATEGORY PART ENDS ======-->
+<!--====== ABOUT PART START ======-->
+<section id="about-part" class="pt-65">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-7">
+                <div class="section-title mt-50">
+                    <h5>About us</h5>
+                    <h2>Welcome to Interior Hospital management system </h2>
+                </div> <!-- section title -->
+                <div class="about-cont">
+                    <p>The Interior Hospital Management System is a comprehensive software solution developed specifically for hospitals and healthcare facilities. Its primary objective is to streamline and automate various administrative and operational tasks, resulting in enhanced efficiency and productivity. The system encompasses a wide range of features and functionalities that facilitate the effective management of patient records, appointments, medical billing, inventory control, and staff scheduling.<br>By implementing the Interior Hospital Management System, hospitals can significantly improve their workflow and coordination across different departments. It enables seamless integration and communication between various healthcare professionals and administrative staff, fostering a more cohesive and efficient working environment.</p>
+                    <a href="@Url.Action("AboutUs","Indexview","Patient")" class="main-btn mt-55">Learn More</a>
+                </div>
+            </div> <!-- about cont -->
+
+        </div> <!-- row -->
+
+    </div> <!-- container -->
+    <div class="about-bg">
+        <img src="~/IndexAssets/images/about/12.png" alt="About">
+    </div>
+</section>
+
+<!--====== ABOUT PART ENDS ======-->
+<!--====== APPLY PART START ======-->
+<!--====== APPLY PART ENDS ======-->
+<!--====== COURSE PART START ======-->
+      <section id="course-part" class="pt-115 pb-120 gray-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="section-title pb-45">
+                    <h5>Our Treatments</h5>
+                    <h2>Featured Treatments </h2>
+                </div> <!-- section title -->
+            </div>
+        </div> <!-- row -->
+        <div class="row course-slied mt-30">
+
+            @foreach (var item in ViewBag.doctor)
+            {
+            <div class="col-lg-4">
+                <div class="singel-course">
+                    <div class="thum">
+                        <div class="image">
+                            <img src="../../../../UploadImage/@item.MyDoctor.Image" width="150" height="300" alt="User">
+                        </div>
+                        <div class="price">
+                            <span>Paid</span>
+                        </div>
+                    </div>
+                    <div class="cont">
+                        <ul>
+                            <li><i class="fa fa-star"></i></li>
+                            <li><i class="fa fa-star"></i></li>
+                            <li><i class="fa fa-star"></i></li>
+                            <li><i class="fa fa-star"></i></li>
+                            <li><i class="fa fa-star"></i></li>
+                        </ul>
+                        <a href="@Url.Action("AddDashboard","Dashboard","Patient")"><h4><span>@item.MyDepartment.DepartmentName</span></h4></a>
+                        <div class="course-teacher">
+                            <div class="thum">
+                                <img src="../../../../UploadImage/@item.MyDoctor.Image" alt="teacher">
+                            </div>
+                            <div class="name">
+                                <a href="@Url.Action("AddDashboard","Dashboard","Patient")"><h6>@item.MyDoctor.DoctorName</h6></a>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- singel course -->
+            </div>
+            }
+        </div> <!-- course slied -->
+    </div> <!-- container -->
+</section>
+
+<!--====== COURSE PART ENDS ======-->
+<!--====== TEACHERS PART START ======-->
+      <section id="teachers-part" class="pt-70 pb-120">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5">
+                <div class="section-title mt-50">
+                    <h5>Featured of Pharmacy</h5>
+                    <h2>Meet Our Pharmacist</h2>
+                </div> <!-- section title -->
+                <div class="teachers-cont">
+                    <p>
+                        Our pharmacist is a highly skilled and knowledgeable healthcare professional who plays a vital role in ensuring the safe and effective use of medications. With extensive training and expertise in pharmacy, our pharmacist is dedicated to providing exceptional pharmaceutical care to our patients.
+
+                        Our pharmacist is responsible for dispensing prescription medications, providing accurate medication information, counseling patients on the proper use and potential side effects of medications, and collaborating with healthcare professionals to optimize patient care.
+
+                        They are well-versed in various medications, their interactions, and potential adverse effects. Our pharmacist stays up to date with the latest advancements in pharmaceuticals and incorporates evidence-based practices in their work.
+
+                        With their expertise, our pharmacist helps patients manage their medications, address concerns or questions related to drug therapy, and promotes overall wellness through medication management.
+
+                    </p>
+                    <a href="@Url.Action("VisitPharmacy","Indexview","Patient")" class="main-btn mt-55">Visit our Medicines</a>
+                </div> <!-- teachers cont -->
+            </div>
+            <div class="col-lg-6 offset-lg-1">
+                <div class="teachers mt-20">
+                    <div class="row">
+                    @foreach (var item in ViewBag.ph)
+                    {
+                        <div class="col-sm-6">
+                            <div class="singel-teachers mt-30 text-center">
+                                <div class="image">
+                                    <img src="../../../../UploadImage/@item.Image" width="150" height="300" alt="teacher">
+                                </div>
+                                <div class="cont">
+                                    <h6>@item.Name</h6>
+                                    <span>Pharmacist</span>
+                                </div>
+                            </div> <!-- singel teachers -->
+                        </div>
+                    }
+                    </div> <!-- row -->
+                </div> <!-- teachers -->
+            </div>
+        </div> <!-- row -->
+    </div> <!-- container -->
+</section>
+
+<div id="patnar-logo" class="pt-40 pb-80 gray-bg">
+    <div class="container">
+        <div class="row patnar-slied">
+            
+            <div class="col-lg-12">
+                <div class="singel-patnar text-center mt-40">
+                    <img src="~/IndexAssets/images/patnar-logo/p-2.png" alt="Logo">
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="singel-patnar text-center mt-40">
+                    <img src="~/IndexAssets/images/patnar-logo/p-3.png" alt="Logo">
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="singel-patnar text-center mt-40">
+                    <img src="~/IndexAssets/images/patnar-logo/p-4.png" alt="Logo">
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="singel-patnar text-center mt-40">
+                    <img src="~/IndexAssets/images/patnar-logo/p-2.png" alt="Logo">
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="singel-patnar text-center mt-40">
+                    <img src="~/IndexAssets/images/patnar-logo/p-3.png" alt="Logo">
+                </div>
+            </div>
+        </div> <!-- row -->
+    </div> <!-- container -->
+</div>

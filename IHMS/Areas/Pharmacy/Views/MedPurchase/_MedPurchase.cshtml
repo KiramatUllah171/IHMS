@@ -1,0 +1,87 @@
+﻿@*@model IEnumerable<IHMS.Models.MedicinePurchase>*@
+@{
+    int Sno = 0;
+    string Status = string.Empty;
+}
+
+<div class="card-body">
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped table-hover dataTable js-exportable">
+            <thead>
+                <tr>
+                    <th>Sno</th>
+                    <th>InvoiceNo</th>
+                    <th>Supllier Name</th>
+                    <th>Contact</th>
+                    <th>CNIC</th>
+                    <th>Shop Name</th>
+                    <th>Total Medicines</th>
+                    <th>Status</th>
+                    <th>Check View</th>
+                    <th>Purchase Payment</th>
+                </tr>
+            </thead>
+            <tbody id="mytable">
+                @if (ViewBag.MedPurchaseList != null)
+                {
+                    foreach (var item in ViewBag.MedPurchaseList)
+                    {
+                        <tr>
+                            <td>
+                                @{ Sno++;}
+                                @Sno
+                            </td>
+                            <td>
+                                @item.InvoiceNo
+                            </td>
+                            <td>
+                                @item.SupplierName
+                            </td>
+                            <td>
+                                @item.SupplierContact
+                            </td>
+                            <td>
+                                @item.SupplierCNIC
+                            </td>
+                            <td>
+                                @item.ShopName
+                            </td>
+                            <td>
+                                @item.TotalMedicines
+                            </td>
+                            <td>
+                                @if (item.Status == 0)
+                                {
+                                    Status = "UnPaid";
+                                }
+                                else
+                                {
+                                    Status = "Paid";
+                                }
+                                @Status
+                            </td>
+                            <td>
+                                @Html.ActionLink("View Invoice", "MedPurInvoice", "MedicinePurchaseInvoice", new { invoiceNo = item.InvoiceNo }, new { @class = "btn btn-primary" })
+                            </td>
+                            <td>
+                                @if (item.Status == 0)
+                                {
+                                    @*@Html.ActionLink("Click to Paid", "MedicinePayment",
+                                   new { MPId = item.InvoiceNo },
+                                   new { @class = "btn btn-danger" })*@
+                                    <button type="button" class="btn btn-danger" onclick="MedPayment(@item.InvoiceNo);">Click to Paid</button>
+                                }
+                                else
+                                {
+                                    @Html.ActionLink("Payment Paid", null,
+                                   null,
+                                   new { @class = "btn btn-success", @Disabled = "Disabled" })
+                                }
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

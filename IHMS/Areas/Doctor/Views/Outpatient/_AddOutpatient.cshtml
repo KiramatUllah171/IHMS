@@ -1,0 +1,36 @@
+﻿@model IEnumerable<IHMS.Models.OutPatient>
+@{
+    int Sno = 0;
+}
+<table class="table table-bordered table-striped table-hover dataTable js-exportable">
+    <thead>
+        <tr>
+            <th>Sno:</th>
+            <th>Patient</th>
+            <th>Doctor</th>
+            <th>Date of Discharge</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody id="mytable">
+        @foreach (var item in ViewBag.outpatient)
+        {
+            <tr>
+                <td>
+                    @{ Sno++;}
+                    @Sno
+                </td>
+                <td>@item.MyPatient.Name</td>
+                <td>@item.MyDoctor.DoctorName</td>
+                <td>@Convert.ToDateTime(item.MyOutPatient.DischargeDate).ToString("ddd dd MMM, yyyy h:mm tt")</td>
+                <td>
+                    @*@Html.ActionLink(" ", "AddDoctorSchedule", new { DsId = item.MySchedule.ScheduleId },
+                        new { @class = "ri-pencil-line mr-0 badge bg-success mr-2" })*@
+
+                    <button type="button" class="btn btn-primary" onclick="Edit(@item.MyOutPatient.OutPatientId);">Edit</button>
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

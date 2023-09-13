@@ -1,0 +1,61 @@
+﻿@model IHMS.Models.tblPatient
+@{
+    ViewBag.Title = "VisitPharmacy";
+    Layout = "~/Areas/Patient/Views/Shared/MyIndexMaster.cshtml";
+}
+
+<section id="page-banner" class="pt-105 pb-110 bg_cover" data-overlay="8" style="background-image: url(images/page-banner-1.jpg)">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="page-banner-cont">
+                    <h2>Pharmacy</h2>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="@Url.Action("Index","Indexview","Patient")">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Pharmacy</li>
+                        </ol>
+                    </nav>
+                </div>  <!-- page banner cont -->
+            </div>
+        </div> <!-- row -->
+    </div> <!-- container -->
+</section>
+
+<section id="shop-page" class="pt-120 pb-120 gray-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="shop-top-search">
+                    <div class="shop-bar">
+                        <ul class="nav" id="myTab" role="tablist">
+                            
+                            <li class="nav-item">WelCome to Medicine Store</li>
+                        </ul> <!-- nav -->
+                    </div><!-- shop bar -->
+                </div> <!-- shop top search -->
+            </div>
+        </div>
+        <div class="row">
+            @foreach (var item in ViewBag.med)
+            {
+                <div class="col-lg-3 col-md-6 col-sm-8">
+                    <div class="singel-publication mt-30">
+
+                        <div class="image">
+
+                            <h6 class="text-center">@item.MyMedicine.MedicineName</h6>
+                            <span>Category</span>: <span class="text-success">@item.MyCategory.CategoryName</span><br />
+                            <span>SubCategory</span>: <span class="text-success">@item.MySubCategory.SubCategoryName</span><br />
+                            <span>Formula</span>: <span class="text-success">@item.MyMedicine.GenericName</span><br />
+                            <span>Unit</span>: <span class="text-success">@item.MyUnit.UnitName</span><br />
+                            <span>Brand</span>: <span class="text-success">@item.MyManufacturer.Name</span><br />
+
+                        </div>
+                    </div> <!-- singel publication -->
+                </div>
+            }
+        </div>
+    </div> <!-- container -->
+</section>
+

@@ -1,0 +1,114 @@
+﻿@model IHMS.Models.MyModel
+@{
+    ViewBag.Title = "ProfileView";
+    Layout = "~/Areas/Doctor/Views/Shared/MyDoctorMaster.cshtml";
+    string status = string.Empty;
+    int Sno = 0;
+    int Sno2 = 0;
+}
+
+<div class="col-lg-12 col-md-12">
+    <div class="card mcard_3">
+        <div class="body">
+            <a><img src="~/UploadImage/@Model.MyDoctor.Image" height="200" width="200" class="rounded-circle shadow " alt="profile-image"></a>
+            <h4 class="m-t-10">@Html.DisplayFor(x => x.MyDoctor.DoctorName)</h4>
+            <div class="row">
+                <div class="col-12">
+                    <ul class="social-links list-unstyled">
+                        <li><a title="facebook" href="https://www.facebook.com"><i class="zmdi zmdi-facebook"></i></a></li>
+                        <li><a title="twitter" href="https://www.twitter.com"><i class="zmdi zmdi-twitter"></i></a></li>
+                        <li><a title="instagram" href="https://www.instagram.com"><i class="zmdi zmdi-instagram"></i></a></li>
+                        <li><a title="google" href="https://www.google.com"><i class="zmdi zmdi-google"></i></a></li>
+                    </ul>
+                    <p><a href="mailto:" class="text-blue">@Html.DisplayFor(x => x.MyDoctor.Email)</a> / @Html.DisplayFor(x => x.MyDoctor.Contact)</p>
+                    
+                   <a href="#" class="text-black" data-toggle="modal" data-target="#Modal"> <small>Followers</small>
+                    <h5 >
+                        @foreach (var item in ViewBag.AppointmentList)
+                        {
+                            { Sno2++;}
+                            @Sno2
+                        }
+                    </h5>
+                    </a>
+                </div>
+                <div class="col-12">
+                    <small class="text-muted">Doc Fee: </small>
+                    @Html.DisplayFor(x => x.MyDoctor.DoctorFee)
+                    <hr class="form-group">
+                    <small class="text-muted">Education: </small>
+                    @Html.DisplayFor(x => x.MyDoctor.Education)
+                    <hr>
+                    <small class="text-muted">Department: </small>
+                    @Html.DisplayFor(x => x.MyDepartment.DepartmentName)
+                    <hr>
+                    <small class="text-muted">Password: </small>
+                    @Html.DisplayFor(x => x.MyDoctor.Password)
+                    <hr>
+                    <small class="text-muted">Status: </small>
+                        @if (Model.MyDoctor.Status == 0)
+                        {
+                            status = "InActive";
+                        }
+                        else
+                        {
+                            status = "Active";
+                        }
+                        @status
+                    <hr>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Follwer</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row clearfix">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="card">
+                            <div class="body">
+                                <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <table class="table table-bordered table-striped table-hover dataTable js-exportable ">
+                                        <thead>
+                                            <tr>
+                                                <th>Sno:</th>
+                                                <th>Name</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var item in ViewBag.AppointmentList)
+                                            {
+                                                <tr>
+                                                    <td>
+                                                        @{ Sno++;}
+                                                        @Sno
+                                                    </td>
+                                                    <td>
+                                                        @item.MyPatient.Name
+                                                    </td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

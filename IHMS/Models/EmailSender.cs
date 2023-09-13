@@ -18,7 +18,7 @@ namespace IHMS.Models
                 var body = msg;
                 var message = new MailMessage();
                 message.To.Add(new MailAddress(email));
-                message.From = new MailAddress("info@juris.pk");
+                message.From = new MailAddress("your email");
                 message.Body = msg;
                 message.Subject = !string.IsNullOrEmpty(subject) ? subject : "User Query";
                 message.IsBodyHtml = true;
@@ -26,11 +26,11 @@ namespace IHMS.Models
                 {
                     var credential = new NetworkCredential
                     {
-                        UserName = "info@juris.pk",
-                        Password = "Juris@303"
+                        UserName = "your email",
+                        Password = "your password"
                     };
                     smtp.Credentials = credential;
-                    smtp.Host = "mail.juris.pk";
+                    smtp.Host = "your host  name";
                     smtp.Port = Convert.ToInt32("25");
                     smtp.EnableSsl = false;
                     smtp.Send(message);
